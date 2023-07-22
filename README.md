@@ -1,3 +1,3 @@
 # ecomsite
 
-blindside.pythonanywhere.com
+http://blindside.pythonanywhere.com/loginuser?next=/
