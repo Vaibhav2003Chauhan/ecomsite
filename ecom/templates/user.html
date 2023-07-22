@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="col-md my-2 ">
+    <div class="card card-body border border-success">
+        <h5>Contact Information</h5>
+        <hr>
+        <p>Name: {{customer.name}} </p>
+        <p>Email : {{customer.email}} </p>
+        
+        <p> go to profile:<a href={% url 'userprofile'  %}>click here</a></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+     <div class="col-md">
+      <div class="card text-center text-dark border border-primary mb-3" id="total-orders">
+         <div class="card-header">
+          <h5 class="card-title">Total Orders</h5>
+         </div>
+         <div class="card-body">
+           <h3 class="card-title">{{totalorder}}</h3>
+         </div>
+      </div>
+     </div>
+    </div>
+
+    <div class="col">
+        <div class="col-md  ">
+         <div class="card text-center text-dark border border-success mb-3" id="orders-delivered">
+            <div class="card-header">
+             <h5 class="card-title">Orders Delivered</h5>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">{{deliver}}</h3>
+            </div>
+         </div>
+        </div>
+       </div>
+<div class="col">
+    <div class="col-md">
+     <div class="card text-center text-dark border border-danger mb-3" id="orders-pending">
+        <div class="card-header">
+         <h5 class="card-title">Orders Pending</h5>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">{{pending}}</h3>
+        </div>
+     </div>
+    </div>
+   </div>
+  </div>
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <table class="table table-sm">
+                <tr>
+                    <th>Product</th>
+                    <th>Category</th>
+                    <th>Date Orderd</th>
+                    <th>Status</th>
+                    
+                </tr>
+                 {% for order in orders %}
+                <tr>
+                    <td>{{order.product}}</td>
+                    <td>{{order.product.category}}</td>  
+                    <td>{{order.date_created}}</td> 
+                    <td>{{order.status}}</td> 
+                
+                    
+                </tr>
+                 {% endfor %} 
+            </table>
+        </div>
+    </div>
+</div>{% endblock body %}

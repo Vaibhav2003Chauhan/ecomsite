@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<div class="row my-4 mx-2 ">
+ <div class="col-md-6">
+    <div class="card card-body ">
+<p> Are you sure to delete that item : {{item}}</p>
+<form method="post" action ="{% url 'deleteorder' item.id %}">
+    {% csrf_token %}
+
+<a href="/"> Cancel</a>
+<button  class= "btn btn-danger mx-1" type="submit"> Delete</button>
+
+</form>
+</div>
+</div>
+</div>
+
+
+
+
+{% endblock body %}
